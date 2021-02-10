@@ -25,6 +25,7 @@ Para instalar o AMAIA é necessário copiar os ficheiros para o diretório desej
 Para utilizar o agente "STS" será necessário fazer o download dos modelos de word embeddings, procedimento que poderá demorar alguns minutos. Para tal basta correr os seguintes comandos no interpretador do Python no terminal:
 
 >>> import ASAPPpy
+
 >>> ASAPPy.download()
 
 Depois disto, o AMAIA estará pronto a correr (ver secção 3).
