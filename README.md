@@ -83,9 +83,9 @@ Um visão alto nível da arquitetura do sistema está representada na imagem arq
 
 A criação de um novo agente implica:
     
-    a) criar uma classe que descenda da classe DefaultAgent e que re-implemente o método matching_questions();
+1. criar uma classe que descenda da classe DefaultAgent e que re-implemente o método matching_questions();
     
-    b) adicionar à função createSingleAgent() do ficheiro GeneralAgent.py uma entrada que associe um ID ao novo agente.
+2. adicionar à função createSingleAgent() do ficheiro GeneralAgent.py uma entrada que associe um ID ao novo agente.
 
 Se for necessário, podem adicionar-se opções ao ficheiro config.txt, a tratar no ficheiro controller.py
 
