@@ -1,4 +1,4 @@
-# AMAIA – agente conversacional baseado em pergunta-reposta
+# AMAIA – agente baseado em pergunta-reposta
 
 O AMAIA é uma plataforma de agentes baseados em perguntas e respostas, fornecidas num ficheiro de texto.
 A adaptação a diferentes domínios requer apenas a utilização de diferentes ficheiros de perguntas e respostas. 
