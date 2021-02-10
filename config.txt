@@ -1,0 +1,9 @@
+{"agents" : ["Whoosh"],
+"corpus" : ["../../corpora/AIA-BDE_v2.txt", "../../corpora/AIA_licencas.txt", "../../corpora/AIA_actividades.txt"],
+"out_of_domain_corpus" : ["../../corpora/chitchat_v1.7_20.txt"],
+"out_of_domain_classifier" : "SVM",
+"decision": "borda",
+"number_of_answers_per_agent" : 5,
+"theta": 0.1,
+"w2v_embeddings": "../../embeddings/nilc_cbow_s300_200k.txt",
+"bert_embeddings": "neuralmind/bert-base-portuguese-cased"}
