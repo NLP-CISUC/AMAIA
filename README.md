@@ -1,7 +1,23 @@
-AMAIA – Instruções de configuração
+# AMAIA – agente conversacional baseado em pergunta-reposta
 
+O AMAIA é uma plataforma de agentes baseados em perguntas e respostas, fornecidas num ficheiro de texto.
+A adaptação a diferentes domínios requer apenas a utilização de diferentes ficheiros de perguntas e respostas. 
+Concretamente, o AMAIA foi aplicado a um conjunto de serviços da Administração Pública.
+Aqui, utiliza o corpus [AIA-BDE][https://github.com/NLP-CISUC/AIA-BDE] para perguntas sobre o domínio, e um corpus de chitchat para responder a interações fora do domínio.
 
-1)	Instalação
+A versão mais recente do sistema é descrita no seguinte artigo científico:
+<pre>
+@article{santos_etal:information2020,
+	author = {Jos{\'e} Santos and Lu{\'\i}s Duarte and Jo{\~a}o Ferreira and Ana Alves and Hugo {Gon{\c c}alo~Oliveira}},
+	journal = {Information},
+	month = {September},
+	number = {9},
+	title = {Developing {A}maia: A Conversational Agent for Helping {P}ortuguese Entrepreneurs -- {A}n Extensive Exploration of Question-Matching Approaches for {P}ortuguese},
+	volume = {11},
+	year = {2020}}
+</pre>
+
+##	Instalação
 Para instalar o AMAIA é necessário copiar os ficheiros para o diretório desejado, e instalar os requisitos através da linha de comandos:
 
 > pip3 install -r requirements.txt --no-cache-dir
@@ -13,7 +29,7 @@ Para utilizar o agente "STS" será necessário fazer o download dos modelos de w
 
 Depois disto, o AMAIA estará pronto a correr (ver secção 3).
 
-2) Configuração
+## Configuração
 
 Existem várias configurações possíveis para o AMAIA, de forma a permitir que este se adapte a diversas situações. Para alterar os mesmos, é necessário alterar o ficheiro config.txt, onde se podem alterar as seguintes opções:
 
@@ -39,7 +55,7 @@ Para os domínios do corpo AIA-BDE, estão disponíveis três classificadores pr
 	bert_embeddings: esta opção é usada apenas pelo agente baseado num modelo BERT e indica o identificador desse modelo na biblioteca python Transformers.
 	
 
-3) Utilização. 
+## Utilização. 
 
 O sistema AMAIA pode ser configurado para ser utilizado de três modos.
 
@@ -60,14 +76,15 @@ Para usar através do Slack:
 Para este último será necessário criar uma app para o workspace onde o sistema será utilizado, de forma a obter o Signing Secret (SLACK_SIGNING_SECRET) e o Bot User OAuth Access Token (SLACK_BOT_TOKEN) necessários. Para a informação mais atualizada sobre como criar uma app deverá ser consultado o site https://api.slack.com.
 
 
-4) Arquitetura
+## Arquitetura
 
 Um visão alto nível da arquitetura do sistema está representada na imagem arquitetura-AMAIA.png.
 
-
 A criação de um novo agente implica:
-a) criar uma classe que descenda da classe DefaultAgent e que re-implemente o método matching_questions();
-b) adicionar à função createSingleAgent() do ficheiro GeneralAgent.py uma entrada que associe um ID ao novo agente.
+    
+    a) criar uma classe que descenda da classe DefaultAgent e que re-implemente o método matching_questions();
+    
+    b) adicionar à função createSingleAgent() do ficheiro GeneralAgent.py uma entrada que associe um ID ao novo agente.
 
 Se for necessário, podem adicionar-se opções ao ficheiro config.txt, a tratar no ficheiro controller.py
 
