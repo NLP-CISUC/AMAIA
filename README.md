@@ -3,7 +3,7 @@
 O AMAIA é uma plataforma de agentes baseados em perguntas e respostas, fornecidas num ficheiro de texto.
 A adaptação a diferentes domínios requer apenas a utilização de diferentes ficheiros de perguntas e respostas. 
 Concretamente, o AMAIA foi aplicado a um conjunto de serviços da Administração Pública.
-Aqui, utiliza o corpus [AIA-BDE][https://github.com/NLP-CISUC/AIA-BDE] para perguntas sobre o domínio, e um corpus de chitchat para responder a interações fora do domínio e simular conversas.
+Aqui, utiliza o corpus [AIA-BDE](https://github.com/NLP-CISUC/AIA-BDE) para perguntas sobre o domínio, e um corpus de chitchat para responder a interações fora do domínio e simular conversas.
 
 A versão mais recente do sistema é descrita no seguinte artigo científico:
 <pre>
