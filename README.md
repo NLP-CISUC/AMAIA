@@ -94,3 +94,7 @@ Os classificadores também podem voltar a ser treinados, usando os scripts Pytho
 ## Agradecimentos
 
 Este sistema foi desenvolvido no [Centro de Informática e Sistemas da Universidade de Coimbra](http://cisuc.dei.uc.pt/), e teve a colaboração da AMA. Foi financiado no âmbito do projeto demonstrador AIA, “Apoio Inteligente a Empreendedores (chatbots)”, financiado pela iniciativa INCoDe 2030 da FCT.
+
+## Agradecimentos
+
+Este sistema foi desenvolvido no [Centro de Informática e Sistemas da Universidade de Coimbra](http://cisuc.dei.uc.pt/), e teve a colaboração da AMA. Foi financiado no âmbito do projeto demonstrador AIA, “Apoio Inteligente a Empreendedores (chatbots)”, financiado pela iniciativa INCoDe 2030 da FCT.

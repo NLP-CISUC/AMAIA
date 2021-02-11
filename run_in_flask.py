@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import controler
+import controller
 import ast
 
 from agents.BertAgent import BertAgent
@@ -16,6 +16,7 @@ def home():
     #Page rendering
     return render_template("home.html")
 
+
 #Logic for chatbot interface
 @app.route("/get")
 def get_bot_response():
@@ -23,7 +24,7 @@ def get_bot_response():
     input_text = request.args.get('msg')
 
     #Using controler to return the most suitable response
-    return str(controler.web_chat_interface(input_text))
+    return str(controller.web_chat_interface(input_text))
 
 
 def load_config(config_file):
@@ -37,11 +38,13 @@ def load_config(config_file):
 
 if __name__ == '__main__':
     #Loading models and starting app
+    print('Loading configurations...')
     configs = load_config("config.txt")
 
-    controler.start_controler(
+    print('Starting Controller...')
+    controller.start_controler(
         configs["agents"], configs["corpus"], configs["out_of_domain_corpus"],
         configs["out_of_domain_classifier"], configs["number_of_answers_per_agent"], configs["decision"],
         configs["theta"], configs["w2v_embeddings"], configs["bert_embeddings"])
 
-    app.run(host="localhost", port=5001, debug=True)
+    app.run(host="localhost", port=5001, debug=True, use_reloader=False)

@@ -3,7 +3,7 @@ import slack
 import asyncio
 import re
 
-import controler
+import controller
 import ast
 
 '''
@@ -34,7 +34,7 @@ async def handle_message(**payload):
 	# if the first letter in the channel name is a D, it means that is was a direct message to the chatbot
     if channel[0] == "D":
         if data.get('subtype') is None and text:
-            message = controler.web_chat_interface(text)
+            message = controller.web_chat_interface(text)
             slack_message = message.replace('<br>', '\n')
 
             webclient = payload['web_client']
@@ -48,7 +48,7 @@ async def handle_message(**payload):
 
         if user_id == bot_id:
             if data.get('subtype') is None and text:
-                message = controler.web_chat_interface(text)
+                message = controller.web_chat_interface(text)
                 slack_message = message.replace('<br>', '\n')
 
                 webclient = payload['web_client']
@@ -78,7 +78,7 @@ def load_config(config_file):
 if __name__ == '__main__':
     #Loading models and starting app
     configs = load_config("config.txt")
-    controler.start_controler(
+    controller.start_controler(
         configs["agents"], configs["corpus"], configs["out_of_domain_corpus"],
         configs["out_of_domain_classifier"], configs["number_of_answers_per_agent"], configs["decision"],
         configs["theta"], configs["w2v_embeddings"], configs["bert_embeddings"])

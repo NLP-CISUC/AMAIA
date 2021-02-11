@@ -74,7 +74,7 @@ def conversation():
                     service_resp = agent.find_response(m)
                     service = ('[' + service_resp['S'] + '] ') if 'S' in service_resp else ''
                     resp = service_resp['R']
-                    print("Se a sua dúvida é \"" + service + str(m) + "\" \n\t* a resposta será: \"" + str(resp) + "\"")
+                    print("Se a sua dúvida é \"" + service + str(m) + "\" \n\t*** a resposta será: \"" + str(resp) + "\"")
 
             else:
                 #print("Frase fora de dominio, ativando chitchat")
