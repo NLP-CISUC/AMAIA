@@ -120,7 +120,7 @@ def web_chat_interface(input_text):
                 service_resp = agent.find_response(m)
                 service = ('[' + service_resp['S'] + '] ') if 'S' in service_resp else ''
                 resp = service_resp['R']
-                response_full += 'Se a sua dúvida é <strong>"' + service + str(m) + '"</strong> <br>* a <strong>resposta</strong> será: "' + str(resp) + '"<br>'
+                response_full += 'Se a sua dúvida é <strong>"' + service + str(m) + '"</strong> <br>*** a <strong>resposta</strong> será: "' + str(resp) + '"<br>'
                 return response_full
         else:
             response = chitchat.matching_questions(input_text)
