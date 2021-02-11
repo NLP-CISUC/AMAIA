@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <title>AMAIA</title>
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://user-images.githubusercontent.com/20112458/49326597-773b7280-f57a-11e8-853d-20ed61d18b0d.png"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      body {
+        font-family: monospace;
+        background-color: #f6f6f6 /*Mudar-me para mudar cor do fundo*/
+      }
+      h1 {
+        color: white;
+        display: inline-block;
+        font-size: 3em;
+        margin: 0;
+        padding: 14px;
+      }
+      h3 {
+        color: black;
+        font-size: 20px;
+        margin-top: 3px;
+        text-align: center;
+      }
+      #chatbox {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        margin-top: 60px;
+      }
+      #userInput {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        margin-top: 60px;
+      }
+      #textInput {
+        width: 100%;
+        border: none;
+        border-radius: 20px;
+        font-family: monospace;
+        font-size: 17px;
+        padding: 5px 5px 5px 25px;
+      }
+      .userText {
+        align-items: left;
+        width: 80%;
+        margin: 1% 0% 1% 25%;
+        color: white;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: right;
+        line-height: 30px;
+        background: rgb(131,213,44);
+        background: linear-gradient(135deg, rgba(131,213,44,1) 0%, rgba(106,172,36,1) 46%, rgba(74,122,23,1) 100%);
+        border-radius: 10px 10px 0px 10px;
+      }
+      .userText span {
+        padding: 10px;
+      }
+      .botText {
+        background: rgb(38,125,238);
+        background: linear-gradient(135deg, rgba(38,125,238,1) 0%, rgba(77,127,191,1) 46%, rgba(39,97,172,1) 100%);
+        color: white;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: justify;
+        line-height: 30px;
+        margin: 0px 100px 0px 0px;
+        border-radius: 10px 10px 10px 0px;
+        padding: 0px 50px 0px 10px;
+      }
+      .botText span {
+        padding: 10px ;
+      }
+      #tidbit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+      }
+      .boxed {
+        margin-left: auto;
+        margin-right: auto;
+        width: 78%;
+        margin-top: 60px;
+      }
+      .box {
+        border: 2px solid black;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <img />
+    <center>
+      <h1 style="color:black">
+        AMAIA 
+      </h1>
+    </center>
+    <div class="box"></div>
+    <div class="boxed" style="margin-bottom: 20vh">
+      <div>
+        <div id="chatbox">
+          <img
+            src="https://user-images.githubusercontent.com/20112458/49326597-773b7280-f57a-11e8-853d-20ed61d18b0d.png"
+            alt="AMAIA"
+            style="width:40px;height:40px;"
+          />
+          <p class="botText">
+            <span>Olá! Eu sou a agente virtual AMAIA </span>
+          </p>
+        </div>
+        <div id="userInput">
+          <input id="textInput" type="text" name="msg" placeholder="Message" class="box" style="color:black; "/>
+        </div>
+      </div>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            $("#chatbox").append(botHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          });
+        }
+        $("#textInput").keypress(function(e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+      </script>
+    </div>
+    <div style="display:flex; height:15vh; justify-content:space-around ;padding-bottom:2vh; position: fixed;
+    bottom: 0;
+    width: 100%;background-color: #f6f6f6 ">
+      <img
+        style="object-fit: cover;height:75%;width: auto;"
+          src="static/cisuc.png"
+          
+        />
+      <img
+      style="object-fit: cover;height:75%;width: auto;"
+          src="static/p2020.png"
+          
+        />
+       <img
+      style="object-fit: cover;height:75%;width: auto;"
+          src="static/ama.png"
+        />
+        <img
+      style="object-fit: cover;height:75%;width: auto;"
+          src="static/uc_dark.png"
+        />
+        <img
+      style="object-fit: cover;height:75%;width: auto;"
+          src="static/fct.png"
+        />
+    </div>
+  </body>
+</html>
