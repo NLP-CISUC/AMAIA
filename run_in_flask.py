@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import sys
 import controller
 import ast
 
@@ -47,4 +48,7 @@ if __name__ == '__main__':
         configs["out_of_domain_classifier"], configs["number_of_answers_per_agent"], configs["decision"],
         configs["theta"], configs["w2v_embeddings"], configs["bert_embeddings"])
 
-    app.run(host="localhost", port=5001, debug=True, use_reloader=False)
+    the_host = sys.argv[0] if sys.argv[0] else "localhost"
+    the_port = int(sys.argv[1]) if sys.argv[0] else 5001
+
+    app.run(host=the_host, port=the_port, debug=True, use_reloader=False)
